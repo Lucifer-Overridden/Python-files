@@ -46,16 +46,16 @@ RuntimeError : maximum recursion depth exceeded.....
 ## Right / Sensible recursive codes
 
 Conditions
-* Must have a *Base Case*, Base case is a case ehose result or value in computed without any recursive calling
+* Must have a *Base Case*, Base case is a case whose result or value in computed without any recursive calling
 * Must have a *Recursive Case*, where the function calls itself or recursion comes into action
 
-To understand the above point let us take a look at one exampple program
+To understand the above point let us take a look at one example program
 
 ``` Python
 '''Write a recursive function that computes the sum of numbers 1....n; get the value of last number n from the user'''
 
 def compute():
-    if num == 1 :          #BASE CASE for thr function
+    if num == 1 :          #BASE CASE for the function
         return 1
     else :                  #RECURSION CASE for the function
         return (num + compute(num-1))
