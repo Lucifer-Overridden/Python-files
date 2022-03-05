@@ -109,7 +109,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("Create table customers (name varchar(100), address varchar(100))
+mycursor.execute("Create table customers (name varchar(100), address varchar(100)")
 
 ```
 
@@ -135,5 +135,51 @@ mycursor.execute("Show tables")
 
 for x in mycursor :
     print(x)
+
+```
+## Primary Key
+
+* When creating a table, you should also create a column with a unique key for each record which can be done by defining a **PRIMARY KEY** 
+* The features of primary key column are that values in it can't be repeated and no cell can be null
+* We can use the statement *"INT AUTO_INCREMENT PRIMARY KEY"* which will insert a unique number for each record, starting at 1 and incrementinh by 1 with each record
+
+``` Python
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user =' yourusername',
+    password = 'yourpassword',
+    database = 'yourdatabase'
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("Create Table customers(id INT AUTO_INCREMENT PRIMARY KEY, name varchar(100), address varchar(100)")
+
+```
+
+## Insert into Table
+
+* To fill a table in MySQL, we can use "INSERT INTO" statement
+
+``` Python
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user =' yourusername',
+    password = 'yourpassword',
+    database = 'yourdatabase'
+)
+
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = ("John", "Highway 21")
+
+mydb.commit()
+
+print(mycursor.rowcount, "record inserted")
 
 ```
