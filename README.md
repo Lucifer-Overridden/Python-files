@@ -1,4 +1,5 @@
-# Python-files
-I am a novice programmer who is learning python and all of my codes are available in this repository
+# Python Files
 
-All of the files contain the question/problem first and then signature, both of these in a single docstring followed by the solutional code
+*All the notes that I make while wathing tutorials or reading content are available here if you fancy referring to them,just see them for their beauty*
+
+Visit my profile, Thanks
