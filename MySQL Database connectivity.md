@@ -320,3 +320,29 @@ myresult = mycursor.fetchone()
 
 print(myresult)
 ```
+## Select with a filter
+
+* When selecting records from a table, you can filter the selection by using the 'Where' statement
+
+```Python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'yourusername',
+    password = 'yourpassword',
+    database = 'youtdatabase'
+)
+
+mycursor = mydb.cursor()
+
+sql = "Select * from customers where address ='Park Lane 38"
+
+mycursor.execute(sql)
+
+myresult = myresult.fetchall()
+
+for x in my result:
+    print(x)
+```
+
