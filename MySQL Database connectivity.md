@@ -183,3 +183,140 @@ mydb.commit()
 print(mycursor.rowcount, "record inserted")
 
 ```
+## Insert Multiple Rows
+
+* To insert many rows into the table we use 'executemany()' method
+* The second parameter of the 'executemany()' method is a list of tuples, containing the data you wish to insert
+
+```Python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
+val = [
+  ('Peter', 'Lowstreet 4'),
+  ('Amy', 'Apple st 652'),
+  ('Hannah', 'Mountain 21'),
+  ('Michael', 'Valley 345'),
+  ('Sandy', 'Ocean blvd 2'),
+  ('Betty', 'Green Grass 1'),
+  ('Richard', 'Sky st 331'),
+  ('Susan', 'One way 98'),
+  ('Vicky', 'Yellow Garden 2'),
+  ('Ben', 'Park Lane 38'),
+  ('William', 'Central st 954'),
+  ('Chuck', 'Main Road 989'),
+  ('Viola', 'Sideway 1633')
+]
+
+mycursor.executemany(sql, val)
+
+mydb.commit()
+
+print(mycursor.rowcount, "was inserted.")
+```
+## Get inserted ID
+
+* You can get the id of the row you just inserted by asking the cursor object
+* *If you insert more than one row then the id of last row is given to you*
+
+``` Python
+import myssql.connector
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'yourusername',
+    password = 'yourpassword',
+    database = 'yourdatabase'
+)
+
+mycursor = mydb.cursor()
+
+sql = 'INSERT INTO customers(name, address) VALUES (%s, %s)'
+val = ("Michelle", "Blue Village")
+
+mycursor.execute(sql, val)
+
+mydb.commit()
+
+print('1 record inserted, ID:', mycursor.lastrowid)
+```
+
+## Select from a Table
+
+* To select from a table in MySQL, use the 'select' statement
+
+```Python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'yourusername',
+    password = 'yourpassword',
+    database = 'mydatabase'
+   )
+   
+mycursor = mydb.cursor()
+
+mycursor.execute("Select * from customers")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
+```
+* We use the 'fetchall()' method to fetch all the rows from the last executed statement
+
+## Selecting columns
+
+* To select only some columns in a table, use the 'Select' statement followed by the column name
+
+```Python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+   host = 'localhost',
+   user = 'yourusername',
+   password = 'yourpassword',
+   database = 'yourdatabase'
+ )
+ 
+ mycursor = mydb.cursor()
+ 
+ mycursor.execute("Select name, address from customers")
+ 
+ myresult = mycursor.fetchall()
+ 
+ for x in myresult:
+    print(x)
+```
+## Using the fetchone() method
+
+* If you only want one row's data then you can use the 'fetchone()' method as it will return the first row of the result
+
+```Python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'yourusername',
+    password = 'yourpassword',
+    database = 'mydatabase'
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("Select * from customers")
+
+myresult = mycursor.fetchone()
+
+print(myresult)
+```
