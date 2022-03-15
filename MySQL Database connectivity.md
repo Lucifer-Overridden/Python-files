@@ -55,6 +55,8 @@ mydb = mysql.connector.connect(
  mycursor = mydb.cursor()
  
  mycursor.execute("Create database mydatabase")
+ 
+ mydb.close()
  ```
  * If the above code is executed with no errors then you have successfully created a database
 
@@ -77,6 +79,8 @@ mycursor.execute('Show Databases')
 
 for x in mycursor:
     print(x)
+    
+mysql.close()
 ```
 OR
 * You can access the database while establishing the connection :
@@ -111,6 +115,7 @@ mycursor = mydb.cursor()
 
 mycursor.execute("Create table customers (name varchar(100), address varchar(100)")
 
+mydb.close()
 ```
 
 * If the code is executed with 0 errors that means you have successfully created the table
@@ -136,6 +141,7 @@ mycursor.execute("Show tables")
 for x in mycursor :
     print(x)
 
+mydb.close()
 ```
 ## Primary Key
 
@@ -157,6 +163,7 @@ mycursor = mydb.cursor()
 
 mycursor.execute("Create Table customers(id INT AUTO_INCREMENT PRIMARY KEY, name varchar(100), address varchar(100)")
 
+mydb.close()
 ```
 
 ## Insert into Table
@@ -182,6 +189,7 @@ mydb.commit()
 
 print(mycursor.rowcount, "record inserted")
 
+mydb.close()
 ```
 ## Insert Multiple Rows
 
@@ -222,6 +230,8 @@ mycursor.executemany(sql, val)
 mydb.commit()
 
 print(mycursor.rowcount, "was inserted.")
+
+mydb.close()
 ```
 ## Get inserted ID
 
@@ -248,6 +258,8 @@ mycursor.execute(sql, val)
 mydb.commit()
 
 print('1 record inserted, ID:', mycursor.lastrowid)
+
+mydb.close()
 ```
 
 ## Select from a Table
@@ -272,6 +284,8 @@ myresult = mycursor.fetchall()
 
 for x in myresult:
     print(x)
+    
+mydb.close()
 ```
 * We use the 'fetchall()' method to fetch all the rows from the last executed statement
 
@@ -297,6 +311,8 @@ mydb = mysql.connector.connect(
  
  for x in myresult:
     print(x)
+    
+mydb.close()
 ```
 ## Using the fetchone() method
 
@@ -319,6 +335,8 @@ mycursor.execute("Select * from customers")
 myresult = mycursor.fetchone()
 
 print(myresult)
+
+mydb.close()
 ```
 ## Select with a filter
 
@@ -344,5 +362,7 @@ myresult = myresult.fetchall()
 
 for x in my result:
     print(x)
+    
+mydb.close()
 ```
 
