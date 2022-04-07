@@ -3,7 +3,9 @@ I am a novice programmer who is learning python and all of my codes are availabl
 
 All the notes that I make while reading books or watching tutorials are also present in this repository for reference
 
-_The codes are written by Lucifer_Overridden in the process of learning very basic concepts of python and hence it is advised to every student to repeat them to learn and teake complete benefit of this repository, also introspecting how the code works is very important_
+_The codes are written by Lucifer_Overridden in the process of learning very basic concepts of python and hence it is advised to every student to repeat them to learn and take complete benefit of this repository, also introspecting how the code works is very important_
+
+_Also I would try to link up the tutorials within the notes so that you all can easily ponder and even follow the tutorial with notes_
 
 ```python
 def learning(method):
